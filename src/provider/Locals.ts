@@ -1,4 +1,6 @@
-import { Application } from "express";
+import * as path from "path";
+import * as dotenv from "dotenv";
+dotenv.config({ path: path.join(__dirname, "..", "..", ".env") });
 
 class Locals {
 	/**
@@ -6,16 +8,16 @@ class Locals {
 	 */
 	public static config(): any {
 		const environment = process.env.ENVIRONMENT || "dev";
-		const port = process.env.PORT || 5000;
+		const serverPort = process.env.SERVER_PORT || "";
+		const redisPort = process.env.REDIS_PORT || "";
+		const redisServer = process.env.REDIS_SERVER || "";
 
 		return {
 			environment,
-			port,
+			serverPort,
+			redisPort,
+			redisServer,
 		};
-	}
-
-	public static init(_express: Application): Application {
-		return _express;
 	}
 }
 

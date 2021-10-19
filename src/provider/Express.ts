@@ -34,10 +34,13 @@ class Express {
 	}
 
 	public init(): void {
-		const { port } = Locals.config();
-		this.server.listen(port, () => {
+		const { serverPort } = Locals.config();
+		this.server.listen(serverPort, () => {
 			/* eslint-disable-next-line no-console */
-			console.log("\x1b[33m%s\x1b[0m", `[Server running on port ${port}]`);
+			console.log(
+				"\x1b[33m%s\x1b[0m",
+				`[Server running on port ${serverPort}]`
+			);
 		});
 	}
 }
