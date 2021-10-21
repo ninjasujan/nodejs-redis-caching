@@ -1,6 +1,7 @@
 import Express from "./Express";
 import Redis from "./Redis";
-
+import { Database } from "./Database";
+import Locals from "../Provider/Locals";
 class App {
 	public loadServer(): void {
 		Express.init();
@@ -8,6 +9,10 @@ class App {
 
 	public loadRedis(): void {
 		Redis.init();
+	}
+
+	public loadMongoDB(): void {
+		Database.init();
 	}
 }
 

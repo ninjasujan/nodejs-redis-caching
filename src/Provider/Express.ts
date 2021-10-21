@@ -1,6 +1,10 @@
 import express, { Application } from "express";
 import http, { Server } from "http";
 import Locals from "./Locals";
+import httpMiddleware from "../middleware/http.middleware";
+import ExceptionHandler from "../exceptions/handler";
+
+import route from "../routes/index";
 
 class Express {
 	/**
@@ -21,12 +25,12 @@ class Express {
 	}
 
 	private mountMiddlewware(): void {
-		// httpMiddleware.mount(this.express);
+		httpMiddleware.mount(this.express);
 	}
 
 	public mountRoute(): void {
-		// this.express.use("/api", route);
-		// this.express.use(ExceptionHandler.errorHandler);
+		this.express.use("/api", route);
+		this.express.use(ExceptionHandler.errorHandler);
 	}
 
 	public getExpress(): Server {

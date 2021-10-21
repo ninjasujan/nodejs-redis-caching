@@ -11,12 +11,14 @@ class Locals {
 		const serverPort = process.env.SERVER_PORT || "";
 		const redisPort = process.env.REDIS_PORT || "";
 		const redisServer = process.env.REDIS_SERVER || "";
+		const mongoUri = process.env.MONGO_URI || "";
 
 		return {
 			environment,
 			serverPort,
 			redisPort,
 			redisServer,
+			mongoUri,
 		};
 	}
 }
